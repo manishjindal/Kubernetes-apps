@@ -1,0 +1,33 @@
+common:
+  image:
+    repository: docker.elastic.co/elasticsearch/elasticsearch
+    tag: 6.1.1
+    pullPolicy: IfNotPresent
+sysctl:
+  image:
+    repository: docker.elastic.co/elasticsearch/elasticsearch
+    tag: 6.1.1
+    pullPolicy: IfNotPresent
+
+elasticsearch:
+  replicas: 3
+  storage:
+    size: "200Gi"
+    class: "portworx"
+  env:
+    NUMBER_OF_MASTERS: "2"
+    ES_JAVA_OPTS: "-Xms3g -Xmx3g"
+
+resource:
+  limits:
+    memory: "6Gi"
+    cpu: "1000m"
+  requests:
+    memory: "5Gi"
+    cpu: "500m"
+
+service:
+  annotations:  
+    prometheus.io/scrape: "true"
+    prometheus.io/path: "/_prometheus/metrics"
+    prometheus.io/port: "9200"

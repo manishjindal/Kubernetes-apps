@@ -1,0 +1,6 @@
+description: Distributed reliable key-value store for the most critical data of a
+  distributed system. Original credit to lachlan@deis.com
+home: https://github.com/coreos/etcd
+icon: https://raw.githubusercontent.com/coreos/etcd/master/logos/etcd-horizontal-color.png
+name: etcd
+version: 0.0.0

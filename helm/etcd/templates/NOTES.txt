@@ -1,0 +1,8 @@
+The etcd cluster has been installed.
+
+Etcd can be accessed:
+  Within your cluster, at the following DNS name at port {{ .Values.ClientPort }} :
+    {{ template "etcd.fullname" . }}-X.{{ .Values.Name }}  where "X" is an instance number
+
+  Retrieve the Etcd member list (e.g. for configuring client access) with:
+  wget -O - http://{{ .Values.Name }}:{{ .Values.ClientPort }}/v2/members
