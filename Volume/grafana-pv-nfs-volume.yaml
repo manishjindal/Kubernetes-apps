@@ -1,0 +1,15 @@
+kind: PersistentVolume
+apiVersion: v1
+metadata:
+  name: grafana-pv-nfs
+  labels:
+    component: grafana
+    app: grafana-grafana
+spec:
+  storageClassName: manual
+  capacity:
+    storage: 10Gi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: "/ies/iesd_data12_nb/iesd_automation/persistant-volume/grafana"

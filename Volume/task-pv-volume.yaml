@@ -1,0 +1,16 @@
+kind: PersistentVolume
+apiVersion: v1
+metadata:
+  name: task-pv-etcd-volume7
+  labels:
+    component: etcd-etcd
+    release: etcd
+    heritage: Tiller
+    chart: etcd-0.3.5
+spec:
+  capacity:
+    storage: 10Gi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: "/tmp/data/prometheus"

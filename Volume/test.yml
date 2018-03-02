@@ -1,0 +1,29 @@
+apiVersion: "v1"
+kind: Pod
+metadata:
+  name: test
+  annotations:
+    prometheus.io/scrape: "true"
+    prometheus.io/probe: "true"
+    prometheus.io/port: "80"
+  labels:
+    name: test
+spec:
+  volumes:
+    - name: task-pv-storage
+      persistentVolumeClaim:
+       claimName: task-pv-claim
+  containers:
+    - name: testworld
+      image: centos:7
+      command: [ "sh" , "-c"]
+      args: ["-c", "while true; do echo madhu1log > /dev/stdout;sleep 1000;done"]
+      volumeMounts:
+        - mountPath: "/grafana/data"
+          name: task-pv-storage
+   
+  #tolerations:
+   # - key: "node"
+   #   operator: "Equal"
+   #   value: "002"
+   #   effect: "NoExecute"
