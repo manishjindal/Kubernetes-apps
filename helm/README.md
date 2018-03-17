@@ -11,7 +11,7 @@ You can follow below links to install helm on your system or you can go to insta
 ```$xslt
 wget https://kubernetes-helm.storage.googleapis.com/helm-v2.8.2-linux-amd64.tar.gz
 
-tar -zxvf helm-v2.8.0-linux-amd64.tgz
+tar -zxvf helm-v2.8.2-linux-amd64.tar.gz
 
 mv linux-amd64/helm /usr/local/bin/helm
 ```
