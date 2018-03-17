@@ -1,0 +1,20 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: k8s-tester
+  labels:
+    component: k8s-tester
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        component: k8s-tester
+    spec:
+      imagePullSecrets:
+      - name: msipull
+      containers:
+      - name: k8s-tester
+        image: "docker.mot-solutions.com/msi/emitter:latest"
+        imagePullPolicy: Always
+        command: ["/bin/sh","-c","while true; do sleep 1; done"]

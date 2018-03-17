@@ -1,0 +1,14 @@
+apiVersion: "extensions/v1beta1"
+kind: Deployment
+metadata:
+  name: test
+  labels:
+    name: test
+    app: world
+spec:
+  containers:
+    - name: Hello-world
+      image: centos:7
+      command: [ "sh" , "-c"]
+      args: ["-c", "while true; do echo testlog > /dev/stdout;sleep 1000;done"]
+   
