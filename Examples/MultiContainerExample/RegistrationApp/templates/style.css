@@ -1,0 +1,10 @@
+div.container {
+   max-width: 900px;
+   margin: 100px auto;
+   border: 10px solid black;
+   padding: 10px;
+   text-align: center;
+}
+h4 {
+   text-transform: uppercase;
+}
