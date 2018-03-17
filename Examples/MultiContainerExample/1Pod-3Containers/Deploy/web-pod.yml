@@ -1,0 +1,31 @@
+apiVersion: "v1"
+kind: Pod
+metadata:
+  name: myflask
+  labels:
+    name: multicontainer-myflask
+spec:
+  containers:
+    - name: mysql
+      image: mysql:latest
+      ports:
+        - containerPort: 3306         
+          protocol: TCP
+      env: 
+        - name: "MYSQL_ROOT_PASSWORD"
+          value: "password"
+    - name: redis
+      image: redis
+      ports:
+        - containerPort: 6379
+          name: redis
+          protocol: TCP
+    - name: python
+      image: mjindal/multicontainer-myflask:1.7
+      env:       
+        - name: "REDIS_HOST"
+          value: "localhost"
+      ports:
+        - containerPort: 5000
+          name: http
+          protocol: TCP
