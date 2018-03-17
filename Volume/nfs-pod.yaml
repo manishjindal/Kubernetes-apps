@@ -10,6 +10,8 @@ spec:
   containers:
     - name: task-pv-container
       image: centos:7
+      command: [ "sh" , "-c"]
+      args: ["-c", "while true; do echo mjindaltestlog > /dev/stdout;sleep 1000;done"]
       volumeMounts:
         - mountPath: "/data/demo"
           name: task-pv-storage

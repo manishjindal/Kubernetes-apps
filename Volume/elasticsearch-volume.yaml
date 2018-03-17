@@ -1,13 +1,13 @@
 kind: PersistentVolume
 apiVersion: v1
 metadata:
-  name: elasticsearch-pv-1
+  name: elasticsearch-pv
   labels:
     type: local
 spec:
   storageClassName: manual
   capacity:
-    storage: 10Gi
+    storage: 10G
   accessModes:
     - ReadWriteOnce
   hostPath:
